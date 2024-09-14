@@ -54,12 +54,30 @@ Mac Mini M1 での生成AI活用（サーバセットアップ編）
 ## はじめに
 当ドキュメントは、Mac Mini M1 を利用した生成AIの活用を目的とした内容のうち、Mac Mini M1 を初期セットアップ状態からサーバとしてセットアップするまでの手順について示しています。
 
+```mermaid
+graph LR
+    A[Mac Mini M1] --> B[生成AI活用]
+    B --> C{サーバセットアップ}
+    C --> D[ドキュメント]
+```
+
+<br/><br/>
+<br/><br/>
+
+
 ## 前提
 ### 当セットアップ手順の前提
 
 * **HW** . . . HWは前提として「Mac Mini Apple M1 16GB」としています。ご利用の環境に応じて読み替えてください。
 * **OS** . . . OSは前提として「macOS Sonoma バージョン14.5」としています。ご利用の環境に応じて読み替えてください。
 * **NW** . . . NWは前提として「インターネット接続不可」としています。生成AIの環境を閉じたネットワーク内で構築することで安全に利用することを目的としています。
+
+
+```mermaid
+```
+
+<br/><br/>
+<br/><br/>
 
 
 
@@ -99,6 +117,17 @@ Mac Mini M1 での生成AI活用（サーバセットアップ編）
 **この情報がMac miniのセットアップにお役立ていただければ幸いです。**
 
 
+```mermaid
+graph LR
+    A[HW] --> B[Mac Mini Apple M1 16GB]
+    C[OS] --> D[macOS Sonoma バージョン14.5]
+    E[NW] --> F[インターネット接続不可]
+```
+
+<br/><br/>
+<br/><br/>
+
+
 
 
 ## 固定IPアドレス設定
@@ -127,7 +156,20 @@ Mac Mini M1 での生成AI活用（サーバセットアップ編）
 * より詳細な設定やトラブルシューティングについては、Appleの公式サポートページやマニュアルを参照してください。
 
 
+```mermaid
+graph LR
+    A[システム設定] --> B{ネットワーク}
+    B --> C{接続}
+    C --> D{詳細}
+    D --> E{TCP/IP}
+    E --> F{IPv4構成}
+    F --> G{手動}
+    G --> H{IPアドレス入力}
+    H --> I{適用}
+```
 
+<br/><br/>
+<br/><br/>
 
 
 ## pingでの疎通確認
@@ -176,7 +218,17 @@ Mac miniのIPアドレスを固定し、pingコマンドで疎通確認を行う
 * ネットワークに関するトラブルシューティングは、専門的な知識が必要な場合があります。ご自身で解決できない場合は、ネットワーク管理者やITサポートに相談することをおすすめします。
 
 
+```mermaid
+sequenceDiagram
+    participant Terminal
+    participant Mac mini
 
+    Terminal->>Mac mini: ping 192.168.10.10
+    Mac mini->>Terminal: 64 bytes from 192.168.10.10: icmp_seq=1 ttl=64 time=0.258 ms
+```
+
+<br/><br/>
+<br/><br/>
 
 ## Mac miniをファイルサーバーとして設定する手順
 
@@ -202,6 +254,21 @@ Mac miniのIPアドレスを固定し、pingコマンドで疎通確認を行う
 **上記の手順で、Mac mini内のファイルにMacBookからアクセスできるようになります。**
 
 
+
+```mermaid
+graph LR
+    A[システム設定] --> B{共有}
+    B --> C{ファイル共有}
+    C --> D{詳細設定}
+    D --> E{オプション}
+    E --> F{Windows ファイル共有}
+    F --> G{オン}
+    G --> H{共有フォルダ追加}
+    H --> I{コンピュータ名変更}
+```
+
+<br/><br/>
+<br/><br/>
 
 
 ## WindowsからMac miniにファイルサーバーとして接続する手順
@@ -255,6 +322,18 @@ Mac miniのIPアドレスを固定し、pingコマンドで疎通確認を行う
 
 
 
+```mermaid
+graph LR
+    A[サーバーアドレス確認] --> B{Windowsエクスプローラー}
+    B --> C{ネットワーク}
+    C --> D{Mac mini}
+    D --> E{接続}
+```
+
+<br/><br/>
+<br/><br/>
+
+
 ## WindowsからMacへリモートデスクトップ接続の手順
 
 ### Mac側の設定
@@ -294,6 +373,22 @@ Mac miniのIPアドレスを固定し、pingコマンドで疎通確認を行う
 
 
 
+```mermaid
+graph LR
+    A[システム設定] --> B{共有}
+    B --> C{画面共有}
+    C --> D{オン}
+    D --> E{パスワード設定}
+    E --> F{VNC使用許可}
+    F --> G{パスワード設定}
+    G --> H{アクセス許可}
+    H --> I{ローカルアカウント追加}
+```
+
+<br/><br/>
+<br/><br/>
+
+
 
 ## Teraterm設定
 
@@ -329,6 +424,26 @@ Mac miniのIPアドレスを固定し、pingコマンドで疎通確認を行う
      ```bash
      SUDO REBOOT
      ```
+
+
+```mermaid
+graph LR
+    A[macOS] --> B{SSH設定確認}
+    B --> C{リモートログイン有効化}
+    C --> D{アクセス許可}
+    D --> E{ローカルアカウント追加}
+    E --> F[Windows]
+    F --> G{Teraterm配置}
+    G --> H{macOS IPアドレス確認}
+    H --> I{Teraterm起動}
+    I --> J{接続設定}
+    J --> K{認証情報入力}
+    K --> L{接続確認}
+    L --> M{再起動確認}
+```
+
+<br/><br/>
+<br/><br/>
 
 
 以上で、Windows 11からmacOS SonomaへのSSH接続設定が完了です。

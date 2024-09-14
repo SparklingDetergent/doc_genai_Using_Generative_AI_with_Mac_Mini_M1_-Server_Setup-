@@ -249,15 +249,14 @@ Mac miniのIPアドレスを固定し、pingコマンドで疎通確認を行う
 
 ### Teratermを使用してWindows 11からmacOS Sonoma 14.5にSSH接続する手順
 
-1. **Teratermのインストール**
-   - Teratermの公式ウェブサイトから最新のインストーラー(zip)をダウンロード。(https://github.com/TeraTermProject/teraterm/releases)
-   - インストーラーを実行してTeratermをインストール。
-
-2. **macOSのSSH設定を確認**
+1. **macOSのSSH設定を確認**
    - macOSで「システム設定」を開く。
    - 「共有」セクションを選択。
    - 「リモートログイン」を有効にする（これによりSSH接続が許可される）。
    - 「アクセスを許可」の「+」ボタンより、ローカルアカウントのユーザ名を選択し、追加する。
+
+2. **WindowsへTeratermの配置**
+   - Teratermの公式ウェブサイトから最新のインストーラー(zip)をダウンロードして任意の場所へ配置する。(https://github.com/TeraTermProject/teraterm/releases)
 
 3. **macOSのIPアドレス確認**
    - 「システム設定」の「ネットワーク」を開く。

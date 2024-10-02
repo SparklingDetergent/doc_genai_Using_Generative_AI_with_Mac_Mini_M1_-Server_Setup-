@@ -472,13 +472,3 @@ graph LR
 
 
 
-```html
-<svg width="200" height="200">
-  <circle cx="100" cy="100" r="80" fill="lightblue" />
-  <rect x="40" y="40" width="120" height="120" fill="orange" opacity="0.5" />
-</svg>
-```
-
-
-
-

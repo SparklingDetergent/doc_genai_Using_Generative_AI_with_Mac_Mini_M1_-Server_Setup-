@@ -14,7 +14,10 @@ Mac Mini M1 での生成AI活用（サーバセットアップ編）
 - [音量設定](#音量設定)
 
 ## はじめに
-当ドキュメントは、Mac Mini M1 を利用した生成AIの活用を目的とした内容のうち、Mac Mini M1 を初期セットアップ状態からサーバとしてセットアップするまでの手順について示しています。
+当ドキュメントは、Mac Mini M1 を利用した生成AIの活用を目的とした内容のうち、Mac Mini M1 を初期セットアップ状態からサーバとしてセットアップするまでの手順について示しています。<br/>
+<br/>
+「生成AI活用」に関するセットアップは（[github.com/SparklingDetergent/doc_genai_Run_local_LLM_with_Llama.cpp_and_Phi-3_mini](https://github.com/SparklingDetergent/doc_genai_Run_local_LLM_with_Llama.cpp_and_Phi-3_mini/blob/main/README.md) ）をご参照ください。<br/>
+<br/>
 
 ```mermaid
 graph LR

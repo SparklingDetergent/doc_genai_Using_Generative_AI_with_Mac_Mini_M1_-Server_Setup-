@@ -12,6 +12,8 @@ Mac Mini M1 での生成AI活用（サーバセットアップ編）
 - [WindowsからMacへリモートデスクトップ接続の手順](#WindowsからMacへリモートデスクトップ接続の手順)
 - [Teraterm設定](#Teraterm設定)
 - [音量設定](#音量設定)
+- [スリープ設定](#スリープ設定)
+
 
 ## はじめに
 当ドキュメントは、Mac Mini M1 を利用した生成AIの活用を目的とした内容のうち、Mac Mini M1 を初期セットアップ状態からサーバとしてセットアップするまでの手順について示しています。<br/>
@@ -431,6 +433,7 @@ graph LR
      ```bash
      SUDO REBOOT
      ```
+以上で、Windows 11からmacOS SonomaへのSSH接続設定が完了です。
 
 
 ```mermaid
@@ -465,11 +468,77 @@ graph LR
    - 「サウンドエフェクト」に関して、各種トグルボタンをオフに設定。
    - 「出力音量」に関して、最小値へ設定。
 
+
 <br/><br/>
 <br/><br/>
 
-以上で、Windows 11からmacOS SonomaへのSSH接続設定が完了です。
+## スリープ設定
 
+### Mac Miniのスリープを無効化・有効化する方法
 
+サーバとして利用する場合、Mac Miniのスリープを無効化することで、常に稼働状態を維持します。
 
+#### スリープを無効化する手順
 
+1. ターミナルを開きます。
+2. 以下のコマンドを入力し、Enterキーを押します。
+   ```
+   sudo pmset -a disablesleep 1
+   ```
+3. パスワードを入力し、再度Enterキーを押します。
+
+#### スリープを有効化する手順
+
+1. ターミナルを開きます。
+2. 以下のコマンドを入力し、Enterキーを押します。
+   ```
+   sudo pmset -a disablesleep 0
+   ```
+3. パスワードを入力し、再度Enterキーを押します。
+
+#### 設定の確認
+
+スリープ設定の状態を確認するには、以下のコマンドを入力します。
+```
+pmset -g
+```
+
+#### 実施結果の例
+
+以下は、スリープ無効化のコマンド実行前確認 -> 実行 -> 実行後確認の設定結果の例です。「 SleepDisabled		1」により無効化されていることを確認できます。
+```
+user@usernoMac-mini bin % pmset -g
+System-wide power settings:
+Currently in use:
+ disksleep            10
+ powernap             1
+ womp                 1
+ networkoversleep     0
+ sleep                0 (sleep prevented by powerd)
+ Sleep On Power Button 1
+ ttyskeepawake        1
+ tcpkeepalive         1
+ autorestart          0
+ standby              0
+ displaysleep         20
+
+user@usernoMac-mini bin % sudo pmset -a disablesleep 1
+Password:
+
+user@usernoMac-mini bin % pmset -g                    
+System-wide power settings:
+ SleepDisabled		1
+Currently in use:
+ disksleep            10
+ powernap             1
+ womp                 1
+ networkoversleep     0
+ sleep                0 (sleep prevented by powerd)
+ Sleep On Power Button 1
+ ttyskeepawake        1
+ tcpkeepalive         1
+ autorestart          0
+ standby              0
+ displaysleep         20
+user@usernoMac-mini bin %
+```
